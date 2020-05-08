@@ -1,0 +1,13 @@
+juliaacademy.com
+1. Getting Started With JuliaAcademy
+	https://juliacomputing.com/products/juliapro#download-table
+	300+ mb Julia Pro
+	Takes a while to Install
+	Activating JuliaPro
+	REPL 
+		--> Type a ] at the prompt. This will "change modes" into the package management mode:
+		--> Type the word up at the (1.0) pkg> prompt and up will pop an authentication window.
+	Installin nteract 
+		https://nteract.io/
+2. Introduction to Julia
+power  = 10 ^ 2 (In python it is 10 ** 2)
