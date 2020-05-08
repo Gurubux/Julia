@@ -1,0 +1,88 @@
+Week 1 - Introduction to Julia scientific programming
+Week 2 - A context for exploring Julia: Working with data
+Week 3 - Notebooks as Julia Programs
+Week 4 - Structuring data and functions in Julia
+
+--------------------------------------------------------------------------------------
+Week 1 - Introduction to Julia scientific programming
+	15 videos, 5 readings, 6 practice quizzes
+	Video: Introduction to Julia scientific programming
+	Video: Julia version 1.0
+	Reading: How this course works
+	Practice Quiz: Is this course right for me?
+	Reading: What to expect from Week 1
+	Discussion Prompt: Meet and greet
+	Video: Programming languages and why Julia is special
+	Video: Getting Ready: JuliaBox
+	Reading: Using Jupyter Notebooks
+	Video: The Julia REPL - Read, Evaluate and Print Loop
+	Practice Quiz: JuliaBox and the Julia REPL
+	Video: Arithmetical expressions
+	Video: Logical expressions
+	Reading: Logical expressions
+	Practice Quiz: Arithmetical and logical expressions in Julia
+	Video: Julia's Type System
+	Video: Variables in Julia
+	Practice Quiz: Types and Arrays in Julia
+	Video: Functions in Julia
+	Video: User-defined functions - part 1
+	Video: User-defined functions - part 2
+	Practice Quiz: Julia functions
+	Video: Week 1: Getting Practice
+	Reading: Approach to assessment in course
+	Video: Installing Juno using Julia
+	Video: Installing Julia Pro
+	Practice Quiz: What makes Julia special?
+
+
+--------------------------------------------------------------------------------------
+Week 2 - A context for exploring Julia: Working with data
+	9 videos, 1 reading, 2 practice quizzes
+	Reading: What to expect from Week 2
+	Video: Introduction to Week 2
+	Video: The Ebola Epidemic of 2014
+	Video: Loading data using Julia
+	Video: Creating .csv from data tables
+	Video: For Loops and Date-Time Formats
+	Practice Quiz: Data and Loops in Julia
+	Video: Simple plots with the Plots package
+	Video: Multiple curves in a single diagram
+	Practice Quiz: Plots in Julia
+	Video: Week 2: Getting Practice
+	Video: How to do a Peer Graded Assignment
+	Peer Review: Creating a Notebook to describe a function (Optional)
+--------------------------------------------------------------------------------------
+Week 3 - Notebooks as Julia Programs
+
+9 videos, 1 reading, 2 practice quizzes
+Reading: What to expect from Week 3
+Video: Introduction to Week 3
+Video: SIR Models of Disease Dynamics
+Video: The SIR model in Julia code
+Video: More on SIR Models
+Practice Quiz: Making simple models
+Video: Plotting Data and an Approximately Fitted Line Simultaneously
+Video: Using the Data - fitting the model parameters
+Practice Quiz: Models
+Video: Week 3: Getting practice
+Video: Practicing fitting a circle to data
+Video: Week 3: Wrap Up
+
+--------------------------------------------------------------------------------------
+Week 4 - Structuring data and functions in Julia
+
+9 videos, 4 readings, 1 practice quiz
+Reading: What to expect from Week 4
+Reading: Packages - Local installation of Julia vs. juliabox.com
+Video: Using Julia for descriptive statistics
+Video: Installing packages for this lesson
+Video: Creating simulated data
+Video: Descriptive statistics
+Video: Creating a dataframe
+Video: Descriptive statistics
+Video: Visualizing data
+Video: Inferential statistics
+Video: Exporting data as a csv file
+Reading: Week 4: Wrap-up
+Reading: Honors material
+Practice Quiz: Collections
