@@ -9,5 +9,167 @@ juliaacademy.com
 		--> Type the word up at the (1.0) pkg> prompt and up will pop an authentication window.
 	Installin nteract 
 		https://nteract.io/
+-------------------------------------------------------------------------------------------
 2. Introduction to Julia
-power  = 10 ^ 2 (In python it is 10 ** 2)
+Variables	
+	power  = 10 ^ 2 (In python it is 10 ** 2)
+Strings
+	'a' Char
+	'Hello' ERROR 
+
+	name = "Jane"
+	num_fingers = 10
+	num_toes = 10
+
+	println("Hello, my name is $name.")
+	println("I have $num_fingers fingers and $num_toes toes.")
+
+	println("That is $(num_fingers + num_toes) digits in all!!")
+
+	 s3+s4
+	ERROR: MethodError: no method matching +(::String, ::String)
+	Closest candidates are:
+	  +(::Any, ::Any, ::Any, ::Any...) at operators.jl:529
+	Stacktrace:
+	 [1] top-level scope at REPL[2]:1
+
+	 In Julia we start counting using 1 
+
+	 Dict(key1 => value1, key2 => value2, ...)
+
+	 myphonebook = Dict("Jenny" => "867-5309", "Ghostbusters" => "555-2368")
+
+	 pop!(myphonebook, "Kramer")
+
+4. Loops 
+	for i in 1:m, j in 1:n
+    	B[i, j] = i + j
+	end
+
+	For in List Comprehension 
+	C = [i + j for i in 1:m, j in 1:n]
+
+
+5. Conditions 
+	"with the if keyword"
+	if *condition 1*
+	    *option 1*
+	elseif *condition 2*
+	    *option 2*
+	else
+	    *option 3*
+	end
+
+	"with ternary operators"
+	a ? b : c
+
+	"with short-circuit evaluation"
+	(x > 0) && error("x cannot be greater than 0")
+	false || println("hi")
+
+6. Functions 
+	"How to declare a function"
+	function sayhi(name)
+	   println("Hi $name, it's great to see you!")
+	end
+	sayhi("C-3PO")
+
+	OR
+
+	"functions in a single line"
+	sayhi2(name) = println("Hi $name, it's great to see you!")
+
+	OR
+
+	"as 'anonymous' functions"
+	sayhi3 = name -> println("Hi $name, it's great to see you!")
+
+
+	"Duck-typing in Julia"
+	"""
+	"If it quacks like a duck, it's a duck." 
+	Julia functions will just work on whatever inputs make sense. 
+	For example, sayhi works on the name of this minor tv character, written as an integer...
+	"""
+
+	addone(x::Int) = x + 1                 # works only for Int
+	addone(x::Integer) = x + oneunit(x)    # any integer type
+	addone(x::Number) = x + oneunit(x)     # any numeric type
+	addone(x) = x + oneunit(x)             # any type supporting + and oneunit
+
+	"""
+	The last definition of addone handles any type supporting oneunit (which returns 1 in the same type as x, which avoids unwanted type promotion) and the + function with those arguments. The key thing to realize is that there is no performance penalty to defining only the general addone(x) = x + oneunit(x), because Julia will automatically compile specialized versions as needed. For example, the first time you call addone(12), Julia will automatically compile a specialized addone function for x::Int arguments, with the call to oneunit replaced by its inlined value 1. Therefore, the first three definitions of addone above are completely redundant with the fourth definition.
+	"""
+
+
+	"Mutating vs. non-mutating functions"   ---->  ! = inplace = True
+	By convention, functions followed by ! alter their contents and functions lacking ! do not.
+	For example, lets look at the difference between sort and sort!.
+	v = [3, 5, 2]
+	sort(v) #returns sorted v, but v is unchanged
+	sort!(v) #sorts the contents of v itself 
+
+	sort(v) returns a sorted array that contains the same elements as v, but v is left unchanged. 
+	On the other hand, when we run sort!(v), the contents of v are sorted within the array v.
+
+
+	"Some higher order functions"
+	map
+		map is a "higher-order" function in Julia that takes a function as one of its input arguments. map then applies that function to every element of the data structure you pass it. For example, executing
+
+		map(f, [1, 2, 3])
+		will give you an output array where the function f has been applied to all elements of [1, 2, 3]
+		[f(1), f(2), f(3)]
+
+		map(x -> x^3, [1, 2, 3]) "anonymous function"
+
+	broadcast
+		broadcast is another higher-order function like map. broadcast is a generalization of map, so it can do every thing map can do and more. 
+		The syntax for calling broadcast is the same as for calling map
+		broadcast(f, [1, 2, 3])
+
+		OR
+
+		f.([1, 2, 3])
+
+		"""
+			Notice again how different this is from calling
+			f([1, 2, 3])
+			We can square every element of a vector, but we can't square a vector!
+		"""
+
+		A .+ 2 .* f.(A) ./ A
+
+		instead of
+
+		broadcast(x -> x + 2 * f(x) / x, A)
+-------------------------------------------------------------------------------------------
+III. Packages and Plotting
+7. Packages
+Julia has over 2000 registered packages, making packages a huge part of the Julia ecosystem.
+****************************************************************
+Even so, the package ecosystem still has some growing to do. Notably, we have first class function calls to other languages, providing excellent foreign function interfaces. We can easily call into python or R, for example, with PyCall or Rcall.
+This means that you dont have to wait until the Julia ecosystem is fully mature, and that moving to Julia doesnt mean you have to give up your favorite package/library from another language!
+****************************************************************
+To see all available packages, check out
+https://pkg.julialang.org/ or https://juliaobserver.com/
+For now, lets learn how to use a package.
+
+The Pip install of Julia 
+	using Pkg
+	Pkg.add("Example")
+
+The import of Julia --> "using"
+	using Example # https://github.com/JuliaLang/Example.jl/blob/master/src/Example.jl
+	hello("it's me. I was wondering if after all these years you'd like to meet.")
+
+Get prime numbers
+	Pkg.add("Primes")
+	using Primes #https://github.com/JuliaMath/Primes.jl
+	primes_list = primes(1000000) # to grab all prime numbers under 1,000,000 and store it in variable primes_list
+
+Get Colors
+	Pkg.add("Colors")
+	using Colors
+	palette = distinguishable_colors(100)
+	rand(palette, 3, 3)
