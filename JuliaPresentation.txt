@@ -1,0 +1,42 @@
+---------------------------------------------------------
+WHY ? 
+---------------------------------------------------------
+https://blog.goodaudience.com/10-reasons-why-you-should-learn-julia-d786ac29c6ca
+https://en.wikipedia.org/wiki/LLVM
+---------------------------------------------------------
+Free, high-level, and fast.
+
+Julia Computing CEO and Julia co-creator Viral Shah said, "Since the launch of Julia 1.0 last year, demand for Julia programmers has exploded as employers seek to leverage Julia’s"
+		1. SUPERIOR PERFORMANCE & 
+		2. EASE OF USE.
+
+Fast ? 
+	Julia applications can compile to efficient native code for multiple platforms thanks to the LLVM compiler.
+	https://juliaacademy.com/courses/552107/lectures/10036455
+
+
+---------------------------------------------------------
+BASIC CODING CHANGES
+---------------------------------------------------------
+Julias Type System
+
+
+---------------------------------------------------------
+MULTIPLE DISPATCH
+---------------------------------------------------------
+
+
+---------------------------------------------------------
+nteract
+---------------------------------------------------------
+
+
+
+
+---------------------------------------------------------
+FUTURE SCOPE
+---------------------------------------------------------
+Parallel computing
+Dataframes.jl
+Flux.jl 
+Knet deep learning framework
