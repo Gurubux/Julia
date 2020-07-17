@@ -173,3 +173,139 @@ Get Colors
 	using Colors
 	palette = distinguishable_colors(100)
 	rand(palette, 3, 3)
+
+
+8. Plotting
+	Plots.jl
+	One of the advantages to Plots.jl is that it allows you to seamlessly change backends. In this notebook, we`ll try out the gr() and plotlyjs() backends.
+	In the name of scientific inquiry, lets use this notebook to examine the relationship between the global temperature and the number of pirates between roughly 1860 and 2000.
+
+	using Pkg
+	Pkg.add("Plots")
+	using Plots
+
+	Plots supports multiple backends — that is, libraries that actually do the drawing — all with the same API. To start out, let`s try the GR backend. You choose it with a call to gr():
+	One of the advantages to Plots.jl is that it allows you to seamlessly change backends. In this notebook, we`ll try out the gr() and plotlyjs() backends.
+
+	In the name of scientific inquiry, let`s use this notebook to examine the relationship between the global temperature and the number of pirates between roughly 1860 and 2000.
+
+	globaltemperatures = [14.4, 14.5, 14.8, 15.2, 15.5, 15.8]
+	numpirates = [45000, 20000, 15000, 5000, 400, 17];
+		Plots supports multiple backends — that is, libraries that actually do the drawing — all with the same API. To start out, let`s try the GR backend. You choose it with a call to gr():
+
+	gr()
+		and now we can use commands like plot and scatter to generate plots.
+
+	plot(numpirates, globaltemperatures, label="line")
+	scatter!(numpirates, globaltemperatures, label="points")
+
+		The ! at the end of the scatter! function name makes scatter! a mutating function, indicating that the scattered points will be added onto the pre-existing plot.
+
+		In contrast, see what happens when you replace scatter! in the above with the non-mutating function scatter.
+
+		Next, let`s update this plot with the xlabel!, ylabel!, and title! commands to add more information to our plot.
+
+	xlabel!("Number of Pirates [Approximate]")
+	ylabel!("Global Temperature (C)")
+	title!("Influence of pirate population on global warming")
+
+		This still doesn`t look quite right. The number of pirates has decreased since 1860, so reading the plot from left to right is like looking backwards In time rather than forwards. Let`s flip the x axis to better see how pirate populations have caused global temperatures to change over time!
+
+
+	p1 = plot(x, x)
+	p2 = plot(x, x.^2)
+	p3 = plot(x, x.^3)
+	p4 = plot(x, x.^4)
+	plot(p1, p2, p3, p4, layout = (2, 2), legend = false)
+
+-------------------------------------------------------------------------------------------
+IV . Advanced topics
+
+9. Multiple Dispatch
+
+10. Julia is fast!
+
+11. Basic Linear Algebra
+
+12. Factorizations
+
+----------------------------
+9. Multiple Dispatch
+	Multiple dispatch makes software generic and fast!
+
+	a. We can declare functions in Julia without giving Julia any information about the types of the input arguments that function will receive:
+		f(x) = x^2
+		f(10)
+		f([1, 2, 3])
+
+	b. Specifying the types of our input arguments
+		However, we also have the option to tell Julia explicitly what types our input arguments are allowed to have.
+		For example, let`s write a function foo that only takes strings as inputs.
+			foo(x::String, y::String) = println("My inputs x and y are both strings!")
+		We see here that in order to restrict the type of x and y to Strings, we just follow the input argument name by a double colon and the keyword String.
+		Now we`ll see that foo works on Strings and doesn` work on other input argument types.
+
+			foo("hello", "hi!")
+		*************************************
+		This is starting to get to the heart of multiple dispatch. When we declared
+			foo(x::Int, y::Int) = println("My inputs x and y are both integers!")
+		we didn`t overwrite or replace
+			foo(y::String, y::String)
+		Instead, we just added an additional method to the generic function called foo.
+		A "generic function" is the abstract concept associated with a particular operation.
+		For example, the generic function + represents the concept of addition.
+		A "method" is a specific implementation of a generic function for particular argument types.
+		For example, + has methods that accept floating point numbers, integers, matrices, etc.
+		We can use the methods to see how many methods there are for foo.
+		*************************************	
+
+		methods(foo)
+			"""
+			2 methods for generic function foo:
+			foo(x::Int64, y::Int64) in Main at In[7]:1
+			foo(x::String, y::String) in Main at In[4]:1
+			"""
+		methods(+)
+			"""163 methods for generic function +:"""
+
+
+		"So, we now can call foo on integers or strings. When you call foo on a particular set of arguments, Julia will infer the types of the inputs and dispatch the appropriate method. This is multiple dispatch."
+		Multiple dispatch makes our code generic And fast. Our code can be generic And flexible because we can write code In terms of abstract operations such As addition and multiplication, rather than in terms of specific implementations. At the same time, our code runs quickly because Julia is able to call efficient methods for the relevant types.
+		To see which method is being dispatched when we call a generic function, we can use the @which macro:
+
+		@which foo(3, 4)
+			"""
+			foo(x::Int64, y::Int64) in Main at In[7]:1
+			"""
+
+		@which 3.0 + 3.0
+		"""
+		+(x::Float64, y::Float64) in Base at float.jl:395
+		"""
+
+		Let`s add one that takes the abstract type Number, which includes subtypes such as Int, Float64, and other objects you would think of as numbers:
+
+		We can also add a fallback, duck-typed method for foo that takes inputs of any type:
+
+
+
+10. Julia is fast!
+
+11. Basic Linear Algebra
+	using LinearAlgebra
+	dot_v = dot(v, v)
+	outer_v = v*v
+	cross_v = cross(v, v)
+
+
+12. Factorizations
+	- Factorizations
+	- Special matrix structures
+	- Generic linear algebra
+
+
+
+Hello Jane,
+I just finished a course @ Julia Computing online, and am so glad to have done the same. Really intuitive. Looking forward to be connected
+Thanks and Regards,
+Gurubux 

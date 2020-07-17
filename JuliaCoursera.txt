@@ -21,7 +21,7 @@ Week 1 - Introduction to Julia scientific programming
 	Video: Logical expressions
 	Reading: Logical expressions
 	Practice Quiz: Arithmetical and logical expressions in Julia
-	Video: Julia's Type System
+	Video: Julias Type System
 	Video: Variables in Julia
 	Practice Quiz: Types and Arrays in Julia
 	Video: Functions in Julia
@@ -33,6 +33,8 @@ Week 1 - Introduction to Julia scientific programming
 	Video: Installing Juno using Julia
 	Video: Installing Julia Pro
 	Practice Quiz: What makes Julia special?
+
+https://github.com/juanklopper/JuliaCourseNotebooks
 
 
 --------------------------------------------------------------------------------------
